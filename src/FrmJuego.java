@@ -1,4 +1,5 @@
 import java.awt.Color;
+import java.util.Random;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -6,6 +7,10 @@ import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 
 public class FrmJuego extends JFrame {
+    JPanel pnlJugador1, pnlJugador2;
+    Jugador jugador1 = new Jugador();
+    Jugador jugador2 = new Jugador();
+
     public FrmJuego() {
         setSize(500, 300);
         setTitle("Juguemos al Apuntado!");
@@ -24,14 +29,26 @@ public class FrmJuego extends JFrame {
         tpJugadores.setBounds(10, 50, 470, 200);
         add(tpJugadores);
 
-        JPanel pnlJugador1 = new JPanel();
+        pnlJugador1 = new JPanel();
         pnlJugador1.setBackground(new Color(0, 255, 0));
-        JPanel pnlJugador2 = new JPanel();
+        pnlJugador2 = new JPanel();
         pnlJugador2.setBackground(new Color(0, 255, 255));
 
         tpJugadores.addTab("Martín Estrada Contreras", pnlJugador1);
         tpJugadores.addTab("Raúl Vidal", pnlJugador2);
 
+        // eventos
+        btnRepartir.addActionListener(e -> {
+            repartir();
+        });
+
+    }
+
+    private void repartir() {
+        jugador1.repartir();
+        jugador2.repartir();
+        jugador1.mostrar(pnlJugador1);
+        jugador2.mostrar(pnlJugador2);
     }
 
 }
