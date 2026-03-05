@@ -1,4 +1,6 @@
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Random;
 
 import javax.swing.JButton;
@@ -38,9 +40,18 @@ public class FrmJuego extends JFrame {
         tpJugadores.addTab("Raúl Vidal", pnlJugador2);
 
         // eventos
+        
         btnRepartir.addActionListener(e -> {
             repartir();
         });
+        /* 
+        btnRepartir.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+               repartir();
+            }
+            
+        });
+        */
 
     }
 
